@@ -7,14 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		962E0FF23DF55192289DE170 /* Pods_BloodBankApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 317767FAC3BC4B33378DA756 /* Pods_BloodBankApp.framework */; };
 		C82F7EDB2033F291009E3315 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82F7EDA2033F291009E3315 /* AppDelegate.swift */; };
 		C82F7EDD2033F291009E3315 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82F7EDC2033F291009E3315 /* ViewController.swift */; };
 		C82F7EE02033F291009E3315 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C82F7EDE2033F291009E3315 /* Main.storyboard */; };
 		C82F7EE22033F291009E3315 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C82F7EE12033F291009E3315 /* Assets.xcassets */; };
 		C82F7EE52033F291009E3315 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C82F7EE32033F291009E3315 /* LaunchScreen.storyboard */; };
+		C82F7EED2033F630009E3315 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C82F7EEC2033F62F009E3315 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		317767FAC3BC4B33378DA756 /* Pods_BloodBankApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BloodBankApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5759010E6DDA82580C94C1AA /* Pods-BloodBankApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BloodBankApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BloodBankApp/Pods-BloodBankApp.debug.xcconfig"; sourceTree = "<group>"; };
+		9AF8A205E7985FE1C613CC30 /* Pods-BloodBankApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BloodBankApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-BloodBankApp/Pods-BloodBankApp.release.xcconfig"; sourceTree = "<group>"; };
 		C82F7ED72033F291009E3315 /* BloodBankApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BloodBankApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C82F7EDA2033F291009E3315 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C82F7EDC2033F291009E3315 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +27,7 @@
 		C82F7EE12033F291009E3315 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C82F7EE42033F291009E3315 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C82F7EE62033F291009E3315 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C82F7EEC2033F62F009E3315 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +35,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				962E0FF23DF55192289DE170 /* Pods_BloodBankApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		53398A56FD0AAE154D23C983 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				317767FAC3BC4B33378DA756 /* Pods_BloodBankApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5D8E38341D1C673172F77731 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5759010E6DDA82580C94C1AA /* Pods-BloodBankApp.debug.xcconfig */,
+				9AF8A205E7985FE1C613CC30 /* Pods-BloodBankApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		C82F7ECE2033F291009E3315 = {
 			isa = PBXGroup;
 			children = (
 				C82F7ED92033F291009E3315 /* BloodBankApp */,
 				C82F7ED82033F291009E3315 /* Products */,
+				5D8E38341D1C673172F77731 /* Pods */,
+				53398A56FD0AAE154D23C983 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +86,7 @@
 				C82F7EE12033F291009E3315 /* Assets.xcassets */,
 				C82F7EE32033F291009E3315 /* LaunchScreen.storyboard */,
 				C82F7EE62033F291009E3315 /* Info.plist */,
+				C82F7EEC2033F62F009E3315 /* GoogleService-Info.plist */,
 			);
 			path = BloodBankApp;
 			sourceTree = "<group>";
@@ -71,9 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C82F7EE92033F291009E3315 /* Build configuration list for PBXNativeTarget "BloodBankApp" */;
 			buildPhases = (
+				D47846F842FECE3AA7DD0153 /* [CP] Check Pods Manifest.lock */,
 				C82F7ED32033F291009E3315 /* Sources */,
 				C82F7ED42033F291009E3315 /* Frameworks */,
 				C82F7ED52033F291009E3315 /* Resources */,
+				2A21E7D0D7B5FFE58507B240 /* [CP] Embed Pods Frameworks */,
+				D0EB9E0577E4057F13CF5C74 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -124,12 +154,69 @@
 			buildActionMask = 2147483647;
 			files = (
 				C82F7EE52033F291009E3315 /* LaunchScreen.storyboard in Resources */,
+				C82F7EED2033F630009E3315 /* GoogleService-Info.plist in Resources */,
 				C82F7EE22033F291009E3315 /* Assets.xcassets in Resources */,
 				C82F7EE02033F291009E3315 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2A21E7D0D7B5FFE58507B240 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BloodBankApp/Pods-BloodBankApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BloodBankApp/Pods-BloodBankApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D0EB9E0577E4057F13CF5C74 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BloodBankApp/Pods-BloodBankApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D47846F842FECE3AA7DD0153 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BloodBankApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C82F7ED32033F291009E3315 /* Sources */ = {
@@ -272,6 +359,7 @@
 		};
 		C82F7EEA2033F291009E3315 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5759010E6DDA82580C94C1AA /* Pods-BloodBankApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -287,6 +375,7 @@
 		};
 		C82F7EEB2033F291009E3315 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9AF8A205E7985FE1C613CC30 /* Pods-BloodBankApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
