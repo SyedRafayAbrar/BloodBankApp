@@ -7,5 +7,5 @@ target 'BloodBankApp' do
 
   # Pods for BloodBankApp
  pod 'Firebase/Core'
-
+pod 'Firebase/Auth'
 end
