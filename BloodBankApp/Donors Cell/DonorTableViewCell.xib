@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="126" id="KGk-i7-Jjw" customClass="DonorTableViewCell" customModule="BloodBankApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="126"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="125.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HbQ-yC-V4s">
+                        <rect key="frame" x="0.0" y="11" width="148" height="108"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="108" id="gee-uN-irx"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bxw-Wh-UsG">
+                        <rect key="frame" x="156" y="11" width="148" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdz-0i-OJJ">
+                        <rect key="frame" x="156" y="52" width="148" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="DonorTableViewCell" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UlL-Uc-Ds9">
+                        <rect key="frame" x="213" y="85" width="34" height="30"/>
+                        <state key="normal" title="View"/>
+                        <connections>
+                            <action selector="switchView:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="J0I-rr-q5W"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="HbQ-yC-V4s" secondAttribute="trailing" constant="172" id="3CB-zz-B8d"/>
+                    <constraint firstItem="UlL-Uc-Ds9" firstAttribute="leading" secondItem="HbQ-yC-V4s" secondAttribute="trailing" constant="65" id="5Et-4B-4FJ"/>
+                    <constraint firstItem="bxw-Wh-UsG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="8ny-1S-IP0"/>
+                    <constraint firstItem="cdz-0i-OJJ" firstAttribute="leading" secondItem="HbQ-yC-V4s" secondAttribute="trailing" constant="8" id="Cq6-rY-pTJ"/>
+                    <constraint firstItem="HbQ-yC-V4s" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="IuZ-r9-z5H"/>
+                    <constraint firstItem="bxw-Wh-UsG" firstAttribute="leading" secondItem="HbQ-yC-V4s" secondAttribute="trailing" constant="8" id="JlG-pu-97a"/>
+                    <constraint firstAttribute="trailing" secondItem="cdz-0i-OJJ" secondAttribute="trailing" constant="16" id="XuV-uo-B6F"/>
+                    <constraint firstItem="HbQ-yC-V4s" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="cK2-CX-K8c"/>
+                    <constraint firstAttribute="trailing" secondItem="UlL-Uc-Ds9" secondAttribute="trailing" constant="73" id="csn-JD-2h9"/>
+                    <constraint firstItem="cdz-0i-OJJ" firstAttribute="top" secondItem="bxw-Wh-UsG" secondAttribute="bottom" constant="20" id="isR-J1-ZjL"/>
+                    <constraint firstItem="UlL-Uc-Ds9" firstAttribute="top" secondItem="cdz-0i-OJJ" secondAttribute="bottom" constant="12" id="tbq-UL-5xL"/>
+                    <constraint firstAttribute="trailing" secondItem="bxw-Wh-UsG" secondAttribute="trailing" constant="16" id="vCb-Fq-ruZ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="bloodGroup" destination="cdz-0i-OJJ" id="aKH-k2-VYt"/>
+                <outlet property="name" destination="bxw-Wh-UsG" id="KFk-W3-1HO"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="95"/>
+        </tableViewCell>
+    </objects>
+</document>

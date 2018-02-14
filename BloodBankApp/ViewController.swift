@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import FirebaseAuth
+import Firebase
 
 class ViewController: UIViewController {
 
+    @IBOutlet var password: UITextField!
+    @IBOutlet var email: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -21,5 +25,17 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func loginPressed(_ sender: Any) {
+        
+        Auth.auth().signIn(withEmail: email.text!, password: password.text!) { (user, error) in
+            if error != nil {
+                print(error!)
+            } else {
+                self.performSegue(withIdentifier: "gotoDonors", sender: nil)
+            }
+        }
+        
+    }
+    
 }
 

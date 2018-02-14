@@ -14,6 +14,10 @@
 		C82F7EE22033F291009E3315 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C82F7EE12033F291009E3315 /* Assets.xcassets */; };
 		C82F7EE52033F291009E3315 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C82F7EE32033F291009E3315 /* LaunchScreen.storyboard */; };
 		C82F7EED2033F630009E3315 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C82F7EEC2033F62F009E3315 /* GoogleService-Info.plist */; };
+		C8F16BCC2034AB5300D9D192 /* DonorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F16BCA2034AB5300D9D192 /* DonorTableViewCell.swift */; };
+		C8F16BCD2034AB5300D9D192 /* DonorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8F16BCB2034AB5300D9D192 /* DonorTableViewCell.xib */; };
+		C8F16BD02034AD0100D9D192 /* DonorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F16BCF2034AD0100D9D192 /* DonorsViewController.swift */; };
+		C8F16BD22034AF6E00D9D192 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F16BD12034AF6E00D9D192 /* RegistrationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,10 @@
 		C82F7EE42033F291009E3315 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C82F7EE62033F291009E3315 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C82F7EEC2033F62F009E3315 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C8F16BCA2034AB5300D9D192 /* DonorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonorTableViewCell.swift; sourceTree = "<group>"; };
+		C8F16BCB2034AB5300D9D192 /* DonorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DonorTableViewCell.xib; sourceTree = "<group>"; };
+		C8F16BCF2034AD0100D9D192 /* DonorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonorsViewController.swift; sourceTree = "<group>"; };
+		C8F16BD12034AF6E00D9D192 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,12 +91,24 @@
 				C82F7EDA2033F291009E3315 /* AppDelegate.swift */,
 				C82F7EDC2033F291009E3315 /* ViewController.swift */,
 				C82F7EDE2033F291009E3315 /* Main.storyboard */,
+				C8F16BD12034AF6E00D9D192 /* RegistrationViewController.swift */,
+				C8F16BCF2034AD0100D9D192 /* DonorsViewController.swift */,
+				C8F16BCE2034AB5A00D9D192 /* Donors Cell */,
 				C82F7EE12033F291009E3315 /* Assets.xcassets */,
 				C82F7EE32033F291009E3315 /* LaunchScreen.storyboard */,
 				C82F7EE62033F291009E3315 /* Info.plist */,
 				C82F7EEC2033F62F009E3315 /* GoogleService-Info.plist */,
 			);
 			path = BloodBankApp;
+			sourceTree = "<group>";
+		};
+		C8F16BCE2034AB5A00D9D192 /* Donors Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C8F16BCA2034AB5300D9D192 /* DonorTableViewCell.swift */,
+				C8F16BCB2034AB5300D9D192 /* DonorTableViewCell.xib */,
+			);
+			path = "Donors Cell";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,6 +175,7 @@
 			files = (
 				C82F7EE52033F291009E3315 /* LaunchScreen.storyboard in Resources */,
 				C82F7EED2033F630009E3315 /* GoogleService-Info.plist in Resources */,
+				C8F16BCD2034AB5300D9D192 /* DonorTableViewCell.xib in Resources */,
 				C82F7EE22033F291009E3315 /* Assets.xcassets in Resources */,
 				C82F7EE02033F291009E3315 /* Main.storyboard in Resources */,
 			);
@@ -225,8 +246,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8F16BCC2034AB5300D9D192 /* DonorTableViewCell.swift in Sources */,
+				C8F16BD02034AD0100D9D192 /* DonorsViewController.swift in Sources */,
 				C82F7EDD2033F291009E3315 /* ViewController.swift in Sources */,
 				C82F7EDB2033F291009E3315 /* AppDelegate.swift in Sources */,
+				C8F16BD22034AF6E00D9D192 /* RegistrationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
