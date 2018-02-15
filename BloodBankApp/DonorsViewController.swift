@@ -9,11 +9,14 @@
 import UIKit
 
 class DonorsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
-
+let touch = UITouch()
+    @IBOutlet var catViewLeading: NSLayoutConstraint!
+    @IBOutlet var categoryView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        catViewLeading.constant = -240;
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,6 +34,14 @@ class DonorsViewController: UIViewController,UITableViewDelegate,UITableViewData
         // Pass the selected object to the new view controller.
     }
     */
+    @IBAction func filterPressed(_ sender: Any) {
+       
+        catViewLeading.constant = 0;
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded() })
+        
+
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
