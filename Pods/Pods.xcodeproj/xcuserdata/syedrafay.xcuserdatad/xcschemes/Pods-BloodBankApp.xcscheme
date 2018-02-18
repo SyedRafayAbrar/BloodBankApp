@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5650DE8753D524381D95830F3CE631B3"
+               BlueprintIdentifier = "7C0064738B126E0BC56D972D010A1335"
                BuildableName = "Pods_BloodBankApp.framework"
                BlueprintName = "Pods-BloodBankApp"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5650DE8753D524381D95830F3CE631B3"
+            BlueprintIdentifier = "7C0064738B126E0BC56D972D010A1335"
             BuildableName = "Pods_BloodBankApp.framework"
             BlueprintName = "Pods-BloodBankApp"
             ReferencedContainer = "container:Pods.xcodeproj">

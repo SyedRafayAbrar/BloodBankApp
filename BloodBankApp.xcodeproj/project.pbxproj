@@ -16,6 +16,7 @@
 		C82F7EED2033F630009E3315 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C82F7EEC2033F62F009E3315 /* GoogleService-Info.plist */; };
 		C8DFA7D62035CD7B00C27421 /* helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DFA7D52035CD7B00C27421 /* helper.swift */; };
 		C8DFA7D82035CE0D00C27421 /* CreatingDonorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DFA7D72035CE0D00C27421 /* CreatingDonorViewController.swift */; };
+		C8DFA7DA2035D68500C27421 /* DonorDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DFA7D92035D68500C27421 /* DonorDetailViewController.swift */; };
 		C8F16BCC2034AB5300D9D192 /* DonorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F16BCA2034AB5300D9D192 /* DonorTableViewCell.swift */; };
 		C8F16BCD2034AB5300D9D192 /* DonorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8F16BCB2034AB5300D9D192 /* DonorTableViewCell.xib */; };
 		C8F16BD02034AD0100D9D192 /* DonorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F16BCF2034AD0100D9D192 /* DonorsViewController.swift */; };
@@ -36,6 +37,7 @@
 		C82F7EEC2033F62F009E3315 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C8DFA7D52035CD7B00C27421 /* helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helper.swift; sourceTree = "<group>"; };
 		C8DFA7D72035CE0D00C27421 /* CreatingDonorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatingDonorViewController.swift; sourceTree = "<group>"; };
+		C8DFA7D92035D68500C27421 /* DonorDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonorDetailViewController.swift; sourceTree = "<group>"; };
 		C8F16BCA2034AB5300D9D192 /* DonorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonorTableViewCell.swift; sourceTree = "<group>"; };
 		C8F16BCB2034AB5300D9D192 /* DonorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DonorTableViewCell.xib; sourceTree = "<group>"; };
 		C8F16BCF2034AD0100D9D192 /* DonorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonorsViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				C82F7EDA2033F291009E3315 /* AppDelegate.swift */,
 				C82F7EDC2033F291009E3315 /* ViewController.swift */,
 				C82F7EDE2033F291009E3315 /* Main.storyboard */,
+				C8DFA7D92035D68500C27421 /* DonorDetailViewController.swift */,
 				C8DFA7D72035CE0D00C27421 /* CreatingDonorViewController.swift */,
 				C8DFA7D52035CD7B00C27421 /* helper.swift */,
 				C8F16BD12034AF6E00D9D192 /* RegistrationViewController.swift */,
@@ -201,6 +204,7 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -209,6 +213,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,6 +267,7 @@
 				C8DFA7D62035CD7B00C27421 /* helper.swift in Sources */,
 				C82F7EDB2033F291009E3315 /* AppDelegate.swift in Sources */,
 				C8DFA7D82035CE0D00C27421 /* CreatingDonorViewController.swift in Sources */,
+				C8DFA7DA2035D68500C27421 /* DonorDetailViewController.swift in Sources */,
 				C8F16BD22034AF6E00D9D192 /* RegistrationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -403,6 +409,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 78T6UPLU6S;
 				INFOPLIST_FILE = BloodBankApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Rafay.BloodBankApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -419,6 +426,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 78T6UPLU6S;
 				INFOPLIST_FILE = BloodBankApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Rafay.BloodBankApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";

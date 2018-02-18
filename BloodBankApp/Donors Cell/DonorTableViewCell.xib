@@ -37,26 +37,26 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="DonorTableViewCell" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UlL-Uc-Ds9">
-                        <rect key="frame" x="213" y="85" width="34" height="30"/>
-                        <state key="normal" title="View"/>
-                        <connections>
-                            <action selector="switchView:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="J0I-rr-q5W"/>
-                        </connections>
-                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click to View" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cAE-9U-jkN">
+                        <rect key="frame" x="156" y="86" width="148" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="1" green="0.084902197435319904" blue="0.23892787001663829" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="HbQ-yC-V4s" secondAttribute="trailing" constant="172" id="3CB-zz-B8d"/>
-                    <constraint firstItem="UlL-Uc-Ds9" firstAttribute="leading" secondItem="HbQ-yC-V4s" secondAttribute="trailing" constant="65" id="5Et-4B-4FJ"/>
                     <constraint firstItem="bxw-Wh-UsG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="8ny-1S-IP0"/>
                     <constraint firstItem="cdz-0i-OJJ" firstAttribute="leading" secondItem="HbQ-yC-V4s" secondAttribute="trailing" constant="8" id="Cq6-rY-pTJ"/>
+                    <constraint firstAttribute="trailing" secondItem="cAE-9U-jkN" secondAttribute="trailing" constant="16" id="IuQ-UJ-jAR"/>
                     <constraint firstItem="HbQ-yC-V4s" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="IuZ-r9-z5H"/>
                     <constraint firstItem="bxw-Wh-UsG" firstAttribute="leading" secondItem="HbQ-yC-V4s" secondAttribute="trailing" constant="8" id="JlG-pu-97a"/>
+                    <constraint firstItem="cAE-9U-jkN" firstAttribute="leading" secondItem="HbQ-yC-V4s" secondAttribute="trailing" constant="8" id="VfC-HB-Smo"/>
                     <constraint firstAttribute="trailing" secondItem="cdz-0i-OJJ" secondAttribute="trailing" constant="16" id="XuV-uo-B6F"/>
+                    <constraint firstItem="cAE-9U-jkN" firstAttribute="top" secondItem="cdz-0i-OJJ" secondAttribute="bottom" constant="13" id="bKe-ct-kBY"/>
                     <constraint firstItem="HbQ-yC-V4s" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="cK2-CX-K8c"/>
-                    <constraint firstAttribute="trailing" secondItem="UlL-Uc-Ds9" secondAttribute="trailing" constant="73" id="csn-JD-2h9"/>
                     <constraint firstItem="cdz-0i-OJJ" firstAttribute="top" secondItem="bxw-Wh-UsG" secondAttribute="bottom" constant="20" id="isR-J1-ZjL"/>
-                    <constraint firstItem="UlL-Uc-Ds9" firstAttribute="top" secondItem="cdz-0i-OJJ" secondAttribute="bottom" constant="12" id="tbq-UL-5xL"/>
+                    <constraint firstAttribute="bottom" secondItem="cAE-9U-jkN" secondAttribute="bottom" constant="18.5" id="nxB-VP-765"/>
                     <constraint firstAttribute="trailing" secondItem="bxw-Wh-UsG" secondAttribute="trailing" constant="16" id="vCb-Fq-ruZ"/>
                 </constraints>
             </tableViewCellContentView>

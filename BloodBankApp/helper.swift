@@ -9,8 +9,15 @@
 import Foundation
 class User{
     var name:String!
-    var age:Int!
+    var Contact:String!
     var address:String!
     var bloodgroup:String!
     
 }
+
+var category:String!
+
+var userName:String!
+var uid:String!
+
+var KEY_UID="uid"

@@ -10,4 +10,8 @@ target 'BloodBankApp' do
 pod 'Firebase/Auth'
 pod 'SwiftKeychainWrapper'
 pod 'IQKeyboardManagerSwift'
+pod 'Firebase/Storage'
+pod 'Firebase/Database'
+
+
 end

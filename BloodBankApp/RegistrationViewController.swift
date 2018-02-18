@@ -37,18 +37,24 @@ class RegistrationViewController: UIViewController {
     */
 
     @IBAction func signupPressed(_ sender: Any) {
-        if password1==password2{
-            Auth.auth().signIn(withEmail: email.text!, password: password1.text!) { (user, error) in
-                if error != nil {
-                    print(error!)
-                }else{
-                    let alert = UIAlertController(title: "Succeeded", message: "Account has been Created", preferredStyle: UIAlertControllerStyle.alert)
-                    let cancel = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-                    alert.addAction(cancel)
-                    self.present(alert, animated: true, completion: nil)
-                    
-                }
+        
+    
+        Auth.auth().createUser(withEmail: email.text!, password: password1.text!) { (user, error) in
+            if error != nil{
+                print("Error occured\(error!)")
+            }else{
+                let alert = UIAlertController(title: "Succeeded", message: "Account has been Created", preferredStyle: UIAlertControllerStyle.alert)
+                let cancel = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                alert.addAction(cancel)
+                self.present(alert, animated: true, completion: nil)
+                
+
             }
-    }
-}
+        }
+        self.dismiss(animated: true, completion: nil)
+            }
+       
+       
+        
+
 }

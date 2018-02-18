@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import Firebase
+import SwiftKeychainWrapper
 
 class ViewController: UIViewController {
 
@@ -16,7 +17,15 @@ class ViewController: UIViewController {
     @IBOutlet var email: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if let _ = KeychainWrapper.defaultKeychainWrapper.string(forKey: KEY_UID){
+            print("JESS: ID found in keychain")
+            performSegue(withIdentifier: "gotoDonors", sender: nil)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,10 +40,16 @@ class ViewController: UIViewController {
             if error != nil {
                 print(error!)
             } else {
+                let keychainResult = KeychainWrapper.defaultKeychainWrapper.set((user?.uid)!, forKey: KEY_UID)
                 self.performSegue(withIdentifier: "gotoDonors", sender: nil)
             }
         }
         
+    }
+    
+    
+    @IBAction func gotoRegitration(_ sender: Any) {
+        performSegue(withIdentifier: "gotoRegister", sender: nil)
     }
     
 }
