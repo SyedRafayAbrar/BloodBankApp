@@ -93,7 +93,7 @@ var imgInfo:Any!
                 //store downloadURL
                 let downloadURL = metaData!.downloadURL()!.absoluteString
                 //store downloadURL at database
-                self.userDetail=["Name":(self.name.text!),"Address":self.address.text!,"Contact":self.contact.text!,"BloodGroup":self.bloodgroup.text!,"Userphoto":downloadURL]
+    self.userDetail=["Name":(self.name.text!),"Address":self.address.text!,"Contact":self.contact.text!,"BloodGroup":self.bloodgroup.text!,"Userphoto":downloadURL]
                 self.ref.child("Donors").childByAutoId().setValue(self.userDetail)
 //self.ref.child("photos").child(uid!).updateChildValues(["userPhoto": downloadURL])
             }

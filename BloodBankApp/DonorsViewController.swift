@@ -19,12 +19,13 @@ class DonorsViewController: UIViewController,UITableViewDelegate {
     @IBOutlet var catViewLeading: NSLayoutConstraint!
     @IBOutlet var categoryView: UIView!
    var ref: DatabaseReference!
+    var listDict = ["Name":"","Address":"","Contact":"","BloodGroup":"","image":""]
   
-    
+    var list = [[String:String]]()
     override func viewDidLoad() {
 
  
-        
+        tableView.reloadData()
         super.viewDidLoad()
 blurView.layer.cornerRadius = 4
         tableView.backgroundColor = .clear
@@ -45,6 +46,7 @@ blurView.layer.cornerRadius = 4
     }
     override func viewDidAppear(_ animated: Bool) {
     fetchData()
+                tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -129,11 +131,37 @@ blurView.layer.cornerRadius = 4
     }
     
     func fetchData(){
-        ref.child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
+       
+        ref.child("Donors").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
-            let value = snapshot.value as? NSDictionary
-           print("Rafay-- \(value)")
             
+            let value = snapshot.value as? NSDictionary
+           print("Rafay-- \(value!)")
+            if let fetched = value![uid!] as? [String:Any]{
+                if let name = fetched["Name"] as? String{
+                    self.listDict["name"]=name
+                    
+                }
+                if let address = fetched["Address"] as? String{
+                   self.listDict["Address"]=address
+
+                }
+                if let contact = fetched["Contact"] as? String{
+                   self.listDict["Contact"]=contact
+                }
+                if let bloodgrp = fetched["BloodGroup"] as? String{
+                   self.listDict["BloodGroup"]=bloodgrp
+                }
+                if let photo = fetched["Userphoto"] as? String{
+                   self.listDict["image"]=photo
+                    
+                }
+            }
+            
+print(self.listDict)
+            print("list\(self.list)")
+            self.list.append(self.listDict)
+            print(self.list)
             // ...
         }) { (error) in
             print(error.localizedDescription)
@@ -144,14 +172,17 @@ blurView.layer.cornerRadius = 4
 
 extension DonorsViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return self.list.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let tempCell = Bundle.main.loadNibNamed("DonorTableViewCell", owner: self, options: nil)?.first as! DonorTableViewCell
+        tempCell.name.text! = list[indexPath.row]["name"]!
+
+        tempCell.bloodGroup.text! = list[indexPath.row]["BloodGroup"]!
         return tempCell
     }
     
