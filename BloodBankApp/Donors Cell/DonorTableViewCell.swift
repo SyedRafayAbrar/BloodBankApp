@@ -11,6 +11,7 @@ import UIKit
 class DonorTableViewCell: UITableViewCell {
     let donObj = DonorsViewController()
 
+    @IBOutlet var blur: UIVisualEffectView!
     @IBOutlet var uImage: UIImageView!
     @IBOutlet var bloodGroup: UILabel!
     @IBOutlet var name: UILabel!
@@ -27,4 +28,13 @@ class DonorTableViewCell: UITableViewCell {
     }
     
    
+}
+extension UITableViewCell {
+    func setTransparent() {
+        let bgView: UIView = UIView()
+        bgView.backgroundColor = .clear
+        
+        self.backgroundView = bgView
+        self.backgroundColor = .clear
+    }
 }

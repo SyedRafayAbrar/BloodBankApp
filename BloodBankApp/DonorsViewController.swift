@@ -26,9 +26,10 @@ class DonorsViewController: UIViewController,UITableViewDelegate {
     override func viewDidLoad() {
 
         tableView.backgroundView?.backgroundColor = .clear ;
-        
+        tableView.separatorColor = .clear
         super.viewDidLoad()
 blurView.layer.cornerRadius = 4
+        
         tableView.backgroundColor = .clear
         
         tableView.separatorStyle = .singleLine
@@ -49,7 +50,7 @@ blurView.layer.cornerRadius = 4
             getID()
             fetchData()
 
-  gameTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: false)
+  gameTimer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: false)
 
         }
 
@@ -66,7 +67,7 @@ blurView.layer.cornerRadius = 4
             fetchData()
 
         
-          gameTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: false)
+          gameTimer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: false)
 
         tableView.reloadData()
         }
@@ -76,7 +77,7 @@ blurView.layer.cornerRadius = 4
         list.removeAll()
         getselectedID()
         fetchData()
-        gameTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: false)
+        gameTimer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: false)
         
         tableView.reloadData()
 
@@ -173,7 +174,7 @@ blurView.layer.cornerRadius = 4
             getselectedID()
             fetchData()
 
-            gameTimer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: false)
+            gameTimer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: false)
             
 
         }
@@ -191,27 +192,37 @@ blurView.layer.cornerRadius = 4
     }
     
     
-    @IBAction func fetchPressed(_ sender: Any) {
-        
+    @IBAction func refreshPressed(_ sender: Any) {
+      categorySelected = ""
+        childKey.removeAll()
+        list.removeAll()
+        getID()
+        fetchData()
+         gameTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: false)
+       tableView.reloadData()
     }
     
 }
 
 extension DonorsViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return list.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return list.count
+        return 1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let tempCell = Bundle.main.loadNibNamed("DonorTableViewCell", owner: self, options: nil)?.first as! DonorTableViewCell
-        tempCell.name.text! = list[indexPath.row]["Name"]!
-        tempCell.bloodGroup.text! = list[indexPath.row]["BloodGroup"]!
+         tempCell.layer.backgroundColor = UIColor.clear.cgColor
+        tempCell.setTransparent()
+        
+        tempCell.blur.layer.cornerRadius = 8
+        tempCell.name.text! = list[indexPath.section]["Name"]!
+        tempCell.bloodGroup.text! = list[indexPath.section]["BloodGroup"]!
        
         // -------------------  img -------------------
-        let url = list[indexPath.row]["image"]!
+        let url = list[indexPath.section]["image"]!
 
         let URL_IMAGE = URL(string: url)
         let session = URLSession(configuration: .default)
@@ -265,15 +276,25 @@ extension DonorsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 130;
+        return 170;
     }
     
+ 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       newindex=indexPath.row
+       newindex=indexPath.section
         performSegue(withIdentifier: "gotoDetails", sender: nil)
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor.clear
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 10
+    }
     
     
 }
