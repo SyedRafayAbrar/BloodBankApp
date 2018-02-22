@@ -28,8 +28,10 @@ var imgInfo:Any!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-      
-
+       contact.layer.cornerRadius = 4
+         bloodgroup.layer.cornerRadius = 4
+         imageView.layer.cornerRadius = 4
+        name.layer.cornerRadius = 4
         storageref = Storage.storage().reference()
         ref = Database.database().reference()
 
@@ -82,9 +84,9 @@ var imgInfo:Any!
         var data = NSData()
         data = UIImageJPEGRepresentation(imageView.image!, 0.8)! as NSData
         // set upload path
-        let filePath = "\(uid)/\("userPhoto")"
+        let filePath = "\(uid!)/\("userPhoto")"
         let metaData = StorageMetadata()
-        metaData.contentType = "image/jpg"
+        metaData.contentType = "image/jpeg"
         self.storageref.child(filePath).putData(data as Data, metadata: metaData){(metaData,error) in
             if let error = error {
                 print(error.localizedDescription)
@@ -96,6 +98,9 @@ var imgInfo:Any!
     self.userDetail=["Name":(self.name.text!),"Address":self.address.text!,"Contact":self.contact.text!,"BloodGroup":self.bloodgroup.text!,"Userphoto":downloadURL]
                 self.ref.child("Donors").childByAutoId().setValue(self.userDetail)
 //self.ref.child("photos").child(uid!).updateChildValues(["userPhoto": downloadURL])
+                list.removeAll()
+                childKey.removeAll()
+                self.dismiss(animated: true, completion: nil)
             }
         }
         

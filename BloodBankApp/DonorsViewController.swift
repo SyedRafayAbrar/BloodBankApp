@@ -18,14 +18,15 @@ class DonorsViewController: UIViewController,UITableViewDelegate {
     let touch = UITouch()
     @IBOutlet var catViewLeading: NSLayoutConstraint!
     @IBOutlet var categoryView: UIView!
-   var ref: DatabaseReference!
-    var listDict = ["Name":"","Address":"","Contact":"","BloodGroup":"","image":""]
+    var ref2:DatabaseReference!
+  var gameTimer: Timer!
   
-    var list = [[String:String]]()
+
+   
     override func viewDidLoad() {
 
- 
-        tableView.reloadData()
+        tableView.backgroundView?.backgroundColor = .clear ;
+        
         super.viewDidLoad()
 blurView.layer.cornerRadius = 4
         tableView.backgroundColor = .clear
@@ -35,7 +36,6 @@ blurView.layer.cornerRadius = 4
   catViewLeading.constant = -240;
        
         
-        ref = Database.database().reference()
         let user = Auth.auth().currentUser
         
         if let user = user {
@@ -43,10 +43,44 @@ blurView.layer.cornerRadius = 4
             userName = user.email
         }
         
+      
+        if list.count == 0 {
+           
+            getID()
+            fetchData()
+
+  gameTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: false)
+
+        }
+
     }
+    
+    
+    
     override func viewDidAppear(_ animated: Bool) {
-    fetchData()
-                tableView.reloadData()
+        if categorySelected == "" {
+        if list.count != 0 {
+            childKey.removeAll()
+            list.removeAll()
+            getID()
+            fetchData()
+
+        
+          gameTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: false)
+
+        tableView.reloadData()
+        }
+        
+      }else{
+        childKey.removeAll()
+        list.removeAll()
+        getselectedID()
+        fetchData()
+        gameTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: false)
+        
+        tableView.reloadData()
+
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,6 +88,9 @@ blurView.layer.cornerRadius = 4
         // Dispose of any resources that can be recreated.
     }
     
+    @objc func runTimedCode(){
+        tableView.reloadData()
+    }
 
     /*
     // MARK: - Navigation
@@ -101,98 +138,142 @@ blurView.layer.cornerRadius = 4
         
         switch button.titleLabel?.text! {
         case "A+"?:
-            category="A+"
+            categorySelected = "A+"
+        // Change to English
         case "A-"?:
-            category="A-"
+            categorySelected = "A-"
+            
         case "B+"?:
-            category="B+"
+            categorySelected = "B+"
+            
         case "B-"?:
-            category="B-"
+            categorySelected = "B-"
+            
         case "O+"?:
-            category="O+"
+            categorySelected = "O+"
+            
         case "O-"?:
-            category="O-"
+            categorySelected = "O-"
+            
         case "AB+"?:
-            category="AB+"
+            categorySelected = "AB+"
+       
         case "AB-"?:
-            category="AB-"
+            categorySelected = "AB-"
             
         default:
-            print("Nothing Happen")
+            print("Unknown language")
+            return
         }
-        print(category)
+
+        
+        if list.count != 0 {
+            childKey.removeAll()
+            list.removeAll()
+            getselectedID()
+            fetchData()
+
+            gameTimer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: false)
+            
+
+        }
+        catViewLeading.constant = -240
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded() })
+        
     }
     @IBAction func logOutPressed(_ sender: Any) {
-         let keychainResult = KeychainWrapper.defaultKeychainWrapper.remove(key: KEY_UID)
+        KeychainWrapper.defaultKeychainWrapper.removeObject(forKey: KEY_UID)
         try! Auth.auth().signOut()
         dismiss(animated: true, completion: nil)
 
         
     }
     
-    func fetchData(){
-       
-        ref.child("Donors").observeSingleEvent(of: .value, with: { (snapshot) in
-            // Get user value
-            
-            let value = snapshot.value as? NSDictionary
-           print("Rafay-- \(value!)")
-            if let fetched = value![uid!] as? [String:Any]{
-                if let name = fetched["Name"] as? String{
-                    self.listDict["name"]=name
-                    
-                }
-                if let address = fetched["Address"] as? String{
-                   self.listDict["Address"]=address
-
-                }
-                if let contact = fetched["Contact"] as? String{
-                   self.listDict["Contact"]=contact
-                }
-                if let bloodgrp = fetched["BloodGroup"] as? String{
-                   self.listDict["BloodGroup"]=bloodgrp
-                }
-                if let photo = fetched["Userphoto"] as? String{
-                   self.listDict["image"]=photo
-                    
-                }
-            }
-            
-print(self.listDict)
-            print("list\(self.list)")
-            self.list.append(self.listDict)
-            print(self.list)
-            // ...
-        }) { (error) in
-            print(error.localizedDescription)
-        }
+    
+    @IBAction func fetchPressed(_ sender: Any) {
+        
     }
     
 }
 
 extension DonorsViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return self.list.count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return list.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let tempCell = Bundle.main.loadNibNamed("DonorTableViewCell", owner: self, options: nil)?.first as! DonorTableViewCell
-        tempCell.name.text! = list[indexPath.row]["name"]!
-
+        tempCell.name.text! = list[indexPath.row]["Name"]!
         tempCell.bloodGroup.text! = list[indexPath.row]["BloodGroup"]!
+       
+        // -------------------  img -------------------
+        let url = list[indexPath.row]["image"]!
+
+        let URL_IMAGE = URL(string: url)
+        let session = URLSession(configuration: .default)
+
+        //creating a dataTask
+        let getImageFromUrl = session.dataTask(with: URL_IMAGE!) { (data, response, error) in
+
+            //if there is any error
+            if let e = error {
+                //displaying the message
+                print("Error Occurred: \(e)")
+
+            } else {
+                  DispatchQueue.main.async {
+
+                //in case of now error, checking wheather the response is nil or not
+                if (response as? HTTPURLResponse) != nil {
+
+                    //checking if the response contains an image
+                    if let imageData = data {
+
+                        //getting the image
+                        let image = UIImage(data: imageData)
+
+                        //displaying the image
+                        tempCell.uImage.image = image
+                        
+
+                    } else {
+                        print("Image file is currupted")
+                    }
+                } else {
+                    print("No response from server")
+                }
+                }
+
+            }
+
+        }
+        getImageFromUrl.resume()
+        //starting the download task
+
+
+
+
+        // -------------------  img -------------------
+       
+        
+//         let bongtuyet:UIImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 148, height: 108))
         return tempCell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 190;
+        return 130;
     }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       newindex=indexPath.row
         performSegue(withIdentifier: "gotoDetails", sender: nil)
     }
+    
+    
     
 }

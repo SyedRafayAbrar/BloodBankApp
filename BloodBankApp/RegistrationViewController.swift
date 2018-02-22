@@ -43,15 +43,12 @@ class RegistrationViewController: UIViewController {
             if error != nil{
                 print("Error occured\(error!)")
             }else{
-                let alert = UIAlertController(title: "Succeeded", message: "Account has been Created", preferredStyle: UIAlertControllerStyle.alert)
-                let cancel = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-                alert.addAction(cancel)
-                self.present(alert, animated: true, completion: nil)
                 
+                 self.dismiss(animated: true, completion: nil)
 
             }
         }
-        self.dismiss(animated: true, completion: nil)
+       
             }
        
        

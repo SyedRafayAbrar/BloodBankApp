@@ -44,6 +44,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="HbQ-yC-V4s" secondAttribute="trailing" constant="172" id="3CB-zz-B8d"/>
                     <constraint firstItem="bxw-Wh-UsG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="8ny-1S-IP0"/>
@@ -64,6 +65,7 @@
             <connections>
                 <outlet property="bloodGroup" destination="cdz-0i-OJJ" id="aKH-k2-VYt"/>
                 <outlet property="name" destination="bxw-Wh-UsG" id="KFk-W3-1HO"/>
+                <outlet property="uImage" destination="HbQ-yC-V4s" id="hXL-8S-Dsv"/>
             </connections>
             <point key="canvasLocation" x="34" y="95"/>
         </tableViewCell>

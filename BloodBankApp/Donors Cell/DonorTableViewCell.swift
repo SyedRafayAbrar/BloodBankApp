@@ -11,6 +11,7 @@ import UIKit
 class DonorTableViewCell: UITableViewCell {
     let donObj = DonorsViewController()
 
+    @IBOutlet var uImage: UIImageView!
     @IBOutlet var bloodGroup: UILabel!
     @IBOutlet var name: UILabel!
     override func awakeFromNib() {
@@ -19,6 +20,7 @@ class DonorTableViewCell: UITableViewCell {
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
+        
         super.setSelected(selected, animated: animated)
        
         // Configure the view for the selected state

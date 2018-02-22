@@ -12,6 +12,8 @@ pod 'SwiftKeychainWrapper'
 pod 'IQKeyboardManagerSwift'
 pod 'Firebase/Storage'
 pod 'Firebase/Database'
+pod 'Alamofire'
+pod 'AlamofireImage'
 
 
 end
